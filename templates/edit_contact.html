@@ -7,7 +7,13 @@
        <form action="" method="POST">
     {% csrf_token %}
     <div class="mb-1  ">
-        {{form}}
+        {% for field in form %}
+      <div class="mb-3">
+          <label class="{{ field.label_classes }}" for="{{ field.id_for_label }}">{{ field.label }}</label>
+          {{ field }}
+          {{ field.errors }}
+      </div>
+     {% endfor %}
         <button type="submit" class="btn btn-success mt-4">Actualizar</button>
         <a href="{% url 'list' %}" class="btn btn-secondary mt-4">Cancelar</a>
     </div>

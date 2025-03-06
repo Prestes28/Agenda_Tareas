@@ -27,10 +27,16 @@ class TaskForm(forms.ModelForm):
             }
         }
         widgets={
-            'title':forms.TextInput(attrs={'class':'form-control bg-secondary border border-2 text-white border-warning'}),
-            'short_description':forms.TextInput(attrs={'class':'form-control bg-secondary border border-2 text-white border-warning'}),
-            'description':forms.Textarea(attrs={'class':'form-control bg-secondary border border-2 text-white border-warning'}),
-            'date':forms.DateInput(attrs={'class':'form-control bg-secondary border border-2 text-white border-warning','type':'date'}),
-            'active':forms.CheckboxInput(attrs={'class':'form-control bg-secondary border border-2 text-white border-warning'})
+            'title':forms.TextInput(attrs={'class':'form-control bg-secondary border border-2 text-white border-warning mt-2'}),
+            'short_description':forms.TextInput(attrs={'class':'form-control bg-secondary border border-2 text-white border-warning mt-2'}),
+            'description':forms.Textarea(attrs={'class':'form-control bg-secondary border border-2 text-white border-warning mt-2'}),
+            'date':forms.DateInput(attrs={'class':'form-control bg-secondary border border-2 text-white border-warning mt-2 ','type':'date'}),
+            'active':forms.CheckboxInput(attrs={'class':'form-check-input bg-secondary border border-2 text-white border-warning mt-2'})
         }
-     
+    def __init__(self, *args, **kwargs):
+            super().__init__(*args, **kwargs)
+            for field_name, field in self.fields.items():
+                field.label_suffix = ''  # Opcional, para quitar los ":" después del label
+                field.widget.attrs['aria-label'] = field.label  # Accesibilidad (opcional)
+                # Guardar la clase CSS del label en un atributo del campo
+                field.label_classes = 'form-label text-warning mt-2'

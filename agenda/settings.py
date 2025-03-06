@@ -25,7 +25,7 @@ SECRET_KEY = os.environ.get('SECRET_KEY',default='sdsdsadsadadmgkds')
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG =False 
 
-ALLOWED_HOSTS = ['agenda.onrender.com']
+ALLOWED_HOSTS = ['agenda.onrender.com', 'locarhost','127.0.0.1']
 
 RENDER_EXTERNAL_HOSTNAME = os.environ.get('RENDER_EXTERNAL_HOSTNAME')
 if RENDER_EXTERNAL_HOSTNAME:
