@@ -1,0 +1,21 @@
+<div class='container-fluid row justify-content-center align-items-stretch my-3  col-12 gx-0'>
+    {% for task in tasks %}
+    <div class='d-flex my-1 col-sm-3 justify-content-center '>
+    <div class='card bg-dark col-sm m-1  h-100 border border-2 border-warning'>  <!-- h-100 para altura uniforme -->
+        <div class='card-body text-white d-flex flex-column'>  <!-- d-flex flex-column para distribuir contenido -->
+            <div class='container mb-2 align-items-center  rounded bg-secondary'><h3 class='card-title text-breack m-1 p-1'>{{task.title}}</h3></div>
+            <p class='card-text text-break mb-2 '>{{task.short_description}}</p>
+            <p class='card-text text-break mb-2 '>{{task.description}}</p>
+            <p class='card-text text-truncate mt-auto text-end '>{{task.date}}</p>
+
+            <div class="mt-1">  <!-- mt-auto para empujar los botones hacia abajo -->
+                <a href="{% url 'editTask' task.id %}" class='btn btn-warning mt-1 btn-sm mx-1'>Editar</a>
+                <a href="{% url 'deleteTask' task.id %}" class='btn btn-danger mt-1 btn-sm mx-1' onclick="return confirm('¿Estás seguro de que quieres eliminar esta tarea?');">Eliminar</a>
+            </div>
+        </div>
+    </div>
+    </div>
+    {% empty %}
+        <li>No hay tareas guardadas.</li>
+    {% endfor %}
+</div>

@@ -1,0 +1,14 @@
+
+<div class='container my-5 '>
+    {% for contact in contacts  %}
+       <div class='contacto list-group-item list-group-item-action bg-dark d-flex m-1  rounded-pill align-items-center  border border-2 text-white border-warning'>
+            <dt class='col-sm text-truncate'>{{contact.name}}</dt>
+            <dt class='col-sm text-truncate'>{{contact.last_name}}</dt>
+            <dd class='col-sm text-truncate my-1'>{{contact.tel1}}</dd>
+            <a href="{% url 'edit_contact' contact.id %}" class='btn btn-warning btn-sm mx-1'>Editar</a>
+            <a href="{% url 'delete_contact' contact.id %}" class='btn btn-danger btn-sm mx-1' onclick="return confirm('¿Estás seguro de que quieres eliminar este contacto?');">Eliminar</a>
+       </div>
+    {%empty%}
+        <li>No hay contactos guardados.</li>
+    {% endfor %}
+</div>
