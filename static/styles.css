@@ -5,3 +5,9 @@
 .contacto:hover {
     background-color: #121212 !important; /* Cambia al color deseado */
 }
+.accordion-button::after {
+    filter: invert(1);
+}
+.accordion-button:not(.collapsed)::after {
+    filter: invert(34%) sepia(72%) saturate(447%) hue-rotate(180deg) brightness(90%) contrast(85%);
+}

@@ -5,8 +5,8 @@ Registración
 
 {% block content %}
 <h3 class='text-center my-3 '>Formulario de Registro</h3>
-<div class='container-fluid align-items-center justify-content-center'>
-   <div class=' col-4 mx-auto p-4 mb-5 rounded bg-dark border border-2 text-white border-warning'>
+<div class='container container-max-width-md align-items-center justify-content-center'>
+   <div class=' container  mx-auto p-4 mb-5 rounded bg-dark border border-2 text-white border-warning' style="max-width: 500px;">
      <form action='' method="POST">
        <div class="mb-1  ">
          {% csrf_token %} 
